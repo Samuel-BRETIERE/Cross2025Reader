@@ -1,0 +1,36 @@
+services:
+  # 1. Service web
+  - type: web
+    name: my-python-web
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app  # adapte si Django : gunicorn myproject.wsgi
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: my-database
+          property: connectionString
+      - key: DISCORD_TOKEN
+        sync: false  # sera défini manuellement dans Render
+
+  # 2. Worker Discord bot
+  - type: worker
+    name: my-discord-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot_main.py  # ton script bot
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: my-database
+          property: connectionString
+      - key: DISCORD_TOKEN
+        sync: false  # sera défini manuellement dans Render
+
+databases:
+  - name: my-database
+    plan: free

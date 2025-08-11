@@ -10,7 +10,7 @@ intent = Intents(messages=True, members=True, guilds=True, reactions=True, messa
 bot = commands.Bot(command_prefix='$', intents=intent)
 
 @bot.command()
-async def mail(ctx):
+async def mailbck(ctx):
     await discord_business.mail(ctx)
 
 @bot.command()
@@ -34,11 +34,7 @@ async def test(ctx):
     await discord_business.test(ctx)
 
 @bot.command()
-async def clear(ctx, nombre: int = 100):
-    await discord_business.clear(ctx, nombre)
-
-@bot.command()
-async def cmd(ctx):
+async def cmdbck(ctx):
     await discord_business.cmd(ctx)
 
 @bot.event

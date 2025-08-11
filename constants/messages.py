@@ -20,11 +20,10 @@ DEBUG_START = "Programme démarré en mode débug"
 
 # CMD
 CMD = "Commandes disponibles :\n\n\
-    $mail : Envoie un mail contenant le fichier word des récompenses.\n\
+    $mailbck : Envoie un mail contenant le fichier word des récompenses.\n\
     $delete : Supprime les coureurs de la base de données.\n\
     $init : Initialise la base de données.\n\
     $debug [on/off/0/1] : Active ou desactive le debug.\n\
     $offset [offset_a offset_b offset_c] : Defini les offsets.\n\
     $test : Lance un appel aux bots connectés.\n\
-    $clear [nombre] : Supprime les messages dans le channel.\n\
-    $cmd : Affiche les commandes"
+    $cmdbck : Affiche les commandes"

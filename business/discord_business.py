@@ -63,9 +63,6 @@ async def offset(ctx, args):
 async def test(ctx):
     await ctx.send(messages.OK)
 
-async def clear(ctx, nombre):
-    await ctx.channel.purge(limit=nombre+1, check=lambda msg: not msg.pinned)
-
 async def cmd(ctx):
     await ctx.send(messages.CMD)
 
